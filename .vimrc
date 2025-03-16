@@ -12,17 +12,10 @@
 
 
 
-" PLUG-INS ---------------------------------------------------------------- {{{
-
+" PLUG-INS
 call plug#begin('~/.vim/plugged')
 
-
-  Plug 'dense-analysis/ale'
-
   Plug 'preservim/nerdtree'
-  
-  Plug 'itchyny/lightline.vim'
-  "Plug 'whatyouhide/vim-gotham'
   
   Plug 'ycm-core/YouCompleteMe'
 
@@ -30,37 +23,23 @@ call plug#begin('~/.vim/plugged')
   
   Plug 'SirVer/ultisnips'
 
-  Plug 'honza/vim-snippet'
+  Plug 'honza/vim-snippets'
   
   Plug 'ervandew/supertab'
  
-  Plug 'zxqfl/tabnine-vim'
-
+  Plug 'vim-airline/vim-airline'
+  
+  Plug 'Vim-airline/vim-airline-themes'
 
 call plug#end()
 
-" }}}
-
-
-" MAPEAMENTO --------------------------------------------------------------- {{{
-
+" MAPEAMENTO
 " Aqui ficam os códigos de mapeamento.
 
 map q :quit<CR>
 map <C-s> :write<CR>
 
-
-" }}}
-
-
-" VIMSCRIPT -------------------------------------------------------------- {{{
-
-" Isso vai ativar o código de dobramento.
-" Usa o método de marcadores para realizar o dobramento.
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-augroup END
+" VIMSCRIPT 
 
 " Aqui ficam mais alguns códigos de Vimscript.
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
@@ -82,82 +61,22 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" }}}
-
-
-" LINHA DE STATUS ----------------------------------------------------------- {{{
-" 
+" LINHA DE STATUS
 
 " Aqui ficam os códigos da linha de status.
-" Limpa a barra de status quando o vimrc é recarregado.
-set statusline=
+syntax on          " Ativa a coloração de sintaxe
+filetype plugin indent on " Habilita plugins e indentação automática
+set tabstop=4      " Define a largura da tabulação como 4 espaços
+set shiftwidth=4   " Define o recuo ao pressionar Tab como 4 espaços
+set expandtab      " Converte Tabs em espaços
+set autoindent     " Mantém a indentação da linha anterior
+set number         " Exibe número da linha
+set scrolloff=5    " Mantém 5 linhas de margem ao rolar
+set wildmenu       " Melhora a navegação no modo de comando
+set clipboard=unnamedplus " Copia e cola diretamente do sistema
+set splitright     " Abre novas divisões à direita
+set splitbelow     " Abre novas divisões abaixo
 
-" Lado esquerdo da barra de status.
-set statusline+=\ %F\ %M\ %Y\ %R
-
-" Utiliza um divisor para separar o lado esquerdo do lado direito.
-set statusline+=%=
-
-" Lado direito da barra de status.
-set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
-
-" Mostra a barra de status na penúltima linha.
-set laststatus=2
-
-
-" Desabilitar a compatibilidade com vi, que pode causar problemas inesperados.
-set nocompatible
-
-" Habilitar a detecção do tipo de arquivo. O Vim será capaz de tentar detectar automaticamente o tipo de arquivo.
-filetype on
-
-" Habilitar plug-ins e carregar o plug-in correspondente ao tipo de arquivo detectado. 
-filetype plugin on
-
-" Carregar um arquivo de indentação correspondente ao tipo de arquivo detectado.
-filetype indent on
-
-" Ativar o realce de sintaxe.
-syntax on
-
-" Adiciona numeração ao lado esquerdo de cada linha.
-set number
-
-" Define o recuo como 4 espaços.
-set shiftwidth=4
-
-" Utiliza espaço ao invés de tabulações.
-set expandtab
-
-" Destaca os caracteres correspondentes á medida que você os digita durante uma busca.
-set incsearch
-
-" Sobrescreve a opção ignorecase se estiver buscando por letras maiúsculas.
-"Isso permitirá que você procure especificamente por letras maiúsculas.
-set smartcase
-
-" Mostra o comando sendo executado.
-set showcmd
-
-" Mostra o modo em que você está.
-set showmode
-
-" Mostra as palavras correspondentes durante uma pesquisa.
-set showmatch
-
-" Utiliza destaque durante uma pesquisa.
-set hlsearch
-
-" Habilita o menu de preenchimento automático ao pressionar TAB.
-set wildmenu
-
-" Faz com que o wildmenu se comporte de ,modo semelhante ao autocompletar do Bash.
-set wildmode=list:longest
-
-" O Wildmenu ignorará arquivos com essas extensões.
-set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
-
-let g:airline_theme = 'dracula'
 " powerline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -170,33 +89,5 @@ let g:airline_symbols.linenr = '☰ '
 let g:airline_symbols.maxlinenr = '  '
 let g:airline_symbols.dirty='⚡'
 
-colorscheme molokai
-
-
-
-" }}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-" Destaca a linha do cursor horizontalmente, diretamente abaixo dele.
-"set cursorline
-" Destaca a linha do cursor verticalmente, diretamente abaixo dele.
-"set cursorcolumn
+colorscheme koehler
+"colorscheme molokai

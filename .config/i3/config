@@ -1,0 +1,172 @@
+# arquivo de configuração i3 (v4)
+#-------------------------------------------------------------------------------------------------------------------
+# Variables
+#-------------------------------------------------------------------------------------------------------------------
+
+#mod key
+set $mod Mod1
+
+#bindsym shortener
+set $sup byndsym Mod1
+
+#exec shortener
+set $exe 	exec --no-startup-id
+set $exe_always exec_always --no-startup-id
+
+#user local bin path (usally '~/bin' or '~/.local/bin)
+set $bin_path ~/bin
+
+#direction keys
+set $ukey Up
+set $dkey Down
+set $lkey Left
+set $rkey Right
+
+#monitor outputs
+set $out_pri output HDMI-1
+set $out_sec output VGA-1
+
+#pulseaudio sink (usually 0 or 1)
+set $pa_sink 1
+
+#float enable
+set $is_float floating enable
+
+#default mail client
+set $default_mail ~/bin/launcher-thunderbird
+
+#default terminal
+set $exe_term exec --no-startup-id env GTK_THEME=Arc-Dark xfce4-Terminal
+
+#vaiable monitor
+set $fm Displayport-0
+set $sm HTML-A-0
+#-----------------------------------------------ATALHOS-BINDS------------------------------------------------------------------
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# open programs
+bindsym $mod+shift+b exec brave
+bindsym $mod+m exec mousepad
+bindsym $mod+Shift+o exec quickswitch
+
+# kill focused window
+bindsym $mod+q kill
+
+#start flameshot modo interativo
+bindsym Print exec flameshot gui
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show run
+# alternador da barra, esconde e mostra
+bindsym $mod+Shift+k bar mode toggle
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym  $mod+semicolon split toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+F11 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+question layout toggle all
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+bindsym  $mod+Control Right resize grow width 	5px or 5 ppt
+bindsym  $mod+Control Left  resize shrink width	5px or 5 ppt
+bindsym  $mod+Control Up    resize grow height 	5px or 5 ppt
+bindsym  $mod+Control Down  resize shrink height 5px or 5 ppt 
+
+# finds out, if available)
+bar {
+        status_command i3status --config ~/.i3status.conf
+	font pango: IosevkaNerdFont 9
+ 
+
+}
+
+#auto-start...------------------------------------------------------------
+exec_always --no-startup-id ~/.resolução/resu-01.sh
+exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Cores das bordas das janelas borda|background-tab|título|slipt
+client.focused #F2F2F2 #F2F2F2 #59492C #A60311
+client.focused_inactive #5D5B69 #314026 #ffffff #DCDCDC
+client.unfocused #5D5B69 #314026 #ffffff #DCDCDC
+client.urgent #044040 #044040 #F2F2F2 #F2F2F2
+client.background #ffffff

@@ -1,0 +1,22 @@
+03/03/2025 12:09:29 - CORE DUMPS: You are running a development version of i3, so coredumps were automatically enabled (ulimit -c unlimited).
+03/03/2025 12:09:29 - CORE DUMPS: Your current working directory is "/home/human".
+03/03/2025 12:09:29 - CORE DUMPS: Your core_pattern is: |/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h
+03/03/2025 12:09:29 - i3 4.24 starting
+03/03/2025 12:09:29 - Parsing configfile /home/human/.config/i3/config
+03/03/2025 12:09:29 - Changing working directory to config file directory /home/human/.config/i3
+03/03/2025 12:09:29 - [libi3] ../libi3/font.c Using Pango font Open Sans, size 10
+03/03/2025 12:09:29 - ERROR: Duplicate keybinding in config file:
+  state mask 0x8 with keysym d, command "exec rofi -show drun -theme ~/.config/rofi/themes/custom.rasi# exit i3 (logs you out of your X session)"
+03/03/2025 12:09:29 - ERROR: FYI: You are using i3 version 4.24
+03/03/2025 12:09:29 - [libi3] ERROR: Refusing to create UNIX socket at /run/user/1000/i3/ipc-socket.1415: Socket is already in use
+i3: Could not create the IPC socket: /run/user/1000/i3/ipc-socket.1415
+[libi3] ../libi3/font.c Using Pango font Open Sans, size 10
+[libi3] ../i3-nagbar/main.c Found current focus at x = -2 / y = -2.
+button with label *edit config* and action *i3-sensible-editor "/home/human/.config/i3/config" && i3-msg reload
+*
+now 1 buttons
+button with label *show errors* and action *i3-sensible-pager "/run/user/1000/i3/errorlog.1424"
+*
+now 2 buttons
+button pressed on x = 1910, y = 20
+button released on x = 1910, y = 20

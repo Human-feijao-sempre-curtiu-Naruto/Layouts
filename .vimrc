@@ -31,13 +31,25 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   
   Plug 'Vim-airline/vim-airline-themes'
+  
+  Plug 'tompretty/vim-todo-lists'
+  
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  
+  Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 " MAPEAMENTO
 " Aqui ficam os códigos de mapeamento.
 
+" Atalho para abrir/fechar o NERDTree rapidamente
+nmap <C-x> :NERDTreeToggle<CR>
+
+" Quit of vim
 map q :quit<CR>
+
+" Salvar 
 map <C-s> :write<CR>
 
 " VIMSCRIPT 

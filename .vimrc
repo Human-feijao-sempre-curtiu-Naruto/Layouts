@@ -32,7 +32,7 @@ call plug#begin('~/.vim/plugged')
   
   Plug 'Vim-airline/vim-airline-themes'
   
-  Plug 'tompretty/vim-todo-lists'
+  Plug 'aserebryakov/vim-todo-lists'
   
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   
@@ -102,5 +102,8 @@ let g:airline_symbols.linenr = '☰ '
 let g:airline_symbols.maxlinenr = '  '
 let g:airline_symbols.dirty='⚡'
 
-colorscheme koehler
+colorscheme morning
+"colorscheme industry
+"colorscheme shine
+"colorscheme koehler
 "colorscheme molokai
